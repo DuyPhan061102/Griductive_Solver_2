@@ -1,0 +1,71 @@
+{
+  "name": "Small Village",
+  "size": 3,
+  "columns": ["A", "B", "C"],
+  "initially_revealed": ["Alice", "Felix", "Chloe"],
+  "cards": [
+    {
+      "cell": "A1",
+      "name": "Alice",
+      "occupation": "Teacher",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Alice", "person2": "Daniel"}}
+    },
+    {
+      "cell": "B1",
+      "name": "Brian",
+      "occupation": "Builder",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Brian", "person2": "Emma"}}
+    },
+    {
+      "cell": "C1",
+      "name": "Chloe",
+      "occupation": "Doctor",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_C", "count": 0}}
+    },
+    {
+      "cell": "A2",
+      "name": "Daniel",
+      "occupation": "Farmer",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Daniel", "person2": "Grace"}}
+    },
+    {
+      "cell": "B2",
+      "name": "Emma",
+      "occupation": "Chef",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 2}}
+    },
+    {
+      "cell": "C2",
+      "name": "Felix",
+      "occupation": "Police Officer",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Felix", "person2": "Grace"}}
+    },
+    {
+      "cell": "A3",
+      "name": "Grace",
+      "occupation": "Artist",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Grace", "person2": "Emma"}}
+    },
+    {
+      "cell": "B3",
+      "name": "Henry",
+      "occupation": "Mechanic",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Henry", "person2": "Ivy"}}
+    },
+    {
+      "cell": "C3",
+      "name": "Ivy",
+      "occupation": "Librarian",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_3", "count": 1}}
+    }
+  ]
+}

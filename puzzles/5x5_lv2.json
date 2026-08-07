@@ -1,0 +1,183 @@
+{
+  "name": "Royal Court",
+  "size": 5,
+  "columns": ["A", "B", "C", "D", "E"],
+  "initially_revealed": ["Agnes", "Claude", "Hans"],
+  "cards": [
+    {
+      "cell": "A1",
+      "name": "Agnes",
+      "occupation": "Queen",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_1", "count": 3}}
+    },
+    {
+      "cell": "B1",
+      "name": "Boris",
+      "occupation": "Knight",
+      "status": "Criminal",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Boris", "person2": "Agnes"}}
+    },
+    {
+      "cell": "C1",
+      "name": "Claude",
+      "occupation": "Bishop",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Claude", "person2": "Boris"}}
+    },
+    {
+      "cell": "D1",
+      "name": "Daphne",
+      "occupation": "Duchess",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_D", "count": 2}}
+    },
+    {
+      "cell": "E1",
+      "name": "Edmund",
+      "occupation": "Earl",
+      "status": "Criminal",
+      "clue": {"type": "DIAGONAL", "args": {"direction": "anti", "count": 2}}
+    },
+    {
+      "cell": "A2",
+      "name": "Freya",
+      "occupation": "Maid",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "col_A", "count": 1}}
+    },
+    {
+      "cell": "B2",
+      "name": "George",
+      "occupation": "Steward",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 2}}
+    },
+    {
+      "cell": "C2",
+      "name": "Hans",
+      "occupation": "Cook",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_2", "count": 1}}
+    },
+    {
+      "cell": "D2",
+      "name": "Isla",
+      "occupation": "Healer",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Isla", "person2": "Hans"}}
+    },
+    {
+      "cell": "E2",
+      "name": "James",
+      "occupation": "Squire",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "James", "person2": "Isla"}}
+    },
+    {
+      "cell": "A3",
+      "name": "Keira",
+      "occupation": "Bard",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_3", "count": 2}}
+    },
+    {
+      "cell": "B3",
+      "name": "Lance",
+      "occupation": "Guard",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Lance", "person2": "Keira"}}
+    },
+    {
+      "cell": "C3",
+      "name": "Marie",
+      "occupation": "Jester",
+      "status": "Innocent",
+      "clue": {"type": "NEIGHBOR_COUNT", "args": {"cell": "C3", "count": 4}}
+    },
+    {
+      "cell": "D3",
+      "name": "Nigel",
+      "occupation": "Scribe",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Nigel", "person2": "Keira"}}
+    },
+    {
+      "cell": "E3",
+      "name": "Olive",
+      "occupation": "Tailor",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_E", "count": 2}}
+    },
+    {
+      "cell": "A4",
+      "name": "Peter",
+      "occupation": "Merchant",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Peter", "person2": "Freya"}}
+    },
+    {
+      "cell": "B4",
+      "name": "Rose",
+      "occupation": "Weaver",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_4", "count": 1}}
+    },
+    {
+      "cell": "C4",
+      "name": "Simon",
+      "occupation": "Alchemist",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_C", "count": 2}}
+    },
+    {
+      "cell": "D4",
+      "name": "Tara",
+      "occupation": "Herbalist",
+      "status": "Criminal",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Tara", "person2": "Simon"}}
+    },
+    {
+      "cell": "E4",
+      "name": "Ulric",
+      "occupation": "Ranger",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Ulric", "person2": "Rose"}}
+    },
+    {
+      "cell": "A5",
+      "name": "Viola",
+      "occupation": "Dancer",
+      "status": "Innocent",
+      "clue": {"type": "AT_LEAST", "args": {"region": "row_5", "count": 2}}
+    },
+    {
+      "cell": "B5",
+      "name": "Walter",
+      "occupation": "Blacksmith",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Walter", "person2": "Tara"}}
+    },
+    {
+      "cell": "C5",
+      "name": "Xena",
+      "occupation": "Warrior",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Xena", "person2": "Walter"}}
+    },
+    {
+      "cell": "D5",
+      "name": "Yves",
+      "occupation": "Painter",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": ["Yves", "Edmund", "Keira"], "count": 3}}
+    },
+    {
+      "cell": "E5",
+      "name": "Zara",
+      "occupation": "Scholar",
+      "status": "Criminal",
+      "clue": {"type": "AT_LEAST", "args": {"region": "col_E", "count": 2}}
+    }
+  ]
+}

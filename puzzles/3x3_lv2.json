@@ -1,0 +1,71 @@
+{
+  "name": "Harbor Town",
+  "size": 3,
+  "columns": ["A", "B", "C"],
+  "initially_revealed": ["Jack", "Oscar"],
+  "cards": [
+    {
+      "cell": "A1",
+      "name": "Jack",
+      "occupation": "Fisherman",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_1", "count": 2}}
+    },
+    {
+      "cell": "B1",
+      "name": "Karen",
+      "occupation": "Nurse",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Karen", "person2": "Jack"}}
+    },
+    {
+      "cell": "C1",
+      "name": "Leo",
+      "occupation": "Sailor",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Leo", "person2": "Karen"}}
+    },
+    {
+      "cell": "A2",
+      "name": "Mia",
+      "occupation": "Baker",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_A", "count": 1}}
+    },
+    {
+      "cell": "B2",
+      "name": "Noah",
+      "occupation": "Carpenter",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 2}}
+    },
+    {
+      "cell": "C2",
+      "name": "Oscar",
+      "occupation": "Merchant",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_C", "count": 0}}
+    },
+    {
+      "cell": "A3",
+      "name": "Penny",
+      "occupation": "Dancer",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Penny", "person2": "Mia"}}
+    },
+    {
+      "cell": "B3",
+      "name": "Quinn",
+      "occupation": "Writer",
+      "status": "Criminal",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Quinn", "person2": "Penny"}}
+    },
+    {
+      "cell": "C3",
+      "name": "Ruby",
+      "occupation": "Florist",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "row_3", "count": 1}}
+    }
+  ]
+}

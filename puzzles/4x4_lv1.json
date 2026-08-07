@@ -1,0 +1,120 @@
+{
+  "name": "City Square",
+  "size": 4,
+  "columns": ["A", "B", "C", "D"],
+  "initially_revealed": ["Amber", "Frank", "Lily"],
+  "cards": [
+    {
+      "cell": "A1",
+      "name": "Amber",
+      "occupation": "Journalist",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_1", "count": 2}}
+    },
+    {
+      "cell": "B1",
+      "name": "Blake",
+      "occupation": "Pilot",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Blake", "person2": "Derek"}}
+    },
+    {
+      "cell": "C1",
+      "name": "Clara",
+      "occupation": "Vet",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Clara", "person2": "Blake"}}
+    },
+    {
+      "cell": "D1",
+      "name": "Derek",
+      "occupation": "Engineer",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_D", "count": 2}}
+    },
+    {
+      "cell": "A2",
+      "name": "Elena",
+      "occupation": "Singer",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_A", "count": 0}}
+    },
+    {
+      "cell": "B2",
+      "name": "Frank",
+      "occupation": "Chef",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "row_2", "count": 1}}
+    },
+    {
+      "cell": "C2",
+      "name": "Gina",
+      "occupation": "Lawyer",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Gina", "person2": "Blake"}}
+    },
+    {
+      "cell": "D2",
+      "name": "Hugo",
+      "occupation": "Architect",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Hugo", "person2": "Gina"}}
+    },
+    {
+      "cell": "A3",
+      "name": "Iris",
+      "occupation": "Teacher",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_3", "count": 1}}
+    },
+    {
+      "cell": "B3",
+      "name": "Jake",
+      "occupation": "Barber",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Jake", "person2": "Iris"}}
+    },
+    {
+      "cell": "C3",
+      "name": "Kara",
+      "occupation": "Dancer",
+      "status": "Criminal",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Kara", "person2": "Jake"}}
+    },
+    {
+      "cell": "D3",
+      "name": "Liam",
+      "occupation": "Driver",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Liam", "person2": "Hugo"}}
+    },
+    {
+      "cell": "A4",
+      "name": "Lily",
+      "occupation": "Pharmacist",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Lily", "person2": "Nina"}}
+    },
+    {
+      "cell": "B4",
+      "name": "Max",
+      "occupation": "Painter",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 1}}
+    },
+    {
+      "cell": "C4",
+      "name": "Nina",
+      "occupation": "Actor",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_C", "count": 3}}
+    },
+    {
+      "cell": "D4",
+      "name": "Owen",
+      "occupation": "Plumber",
+      "status": "Criminal",
+      "clue": {"type": "AT_LEAST", "args": {"region": "row_4", "count": 2}}
+    }
+  ]
+}

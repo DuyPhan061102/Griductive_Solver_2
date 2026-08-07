@@ -1,0 +1,120 @@
+{
+  "name": "Night Market",
+  "size": 4,
+  "columns": ["A", "B", "C", "D"],
+  "initially_revealed": ["Ada", "Eve"],
+  "cards": [
+    {
+      "cell": "A1",
+      "name": "Ada",
+      "occupation": "Coder",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_1", "count": 1}}
+    },
+    {
+      "cell": "B1",
+      "name": "Ben",
+      "occupation": "Tailor",
+      "status": "Criminal",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Ben", "person2": "Ada"}}
+    },
+    {
+      "cell": "C1",
+      "name": "Cara",
+      "occupation": "Jeweler",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Cara", "person2": "Ada"}}
+    },
+    {
+      "cell": "D1",
+      "name": "Dan",
+      "occupation": "Butcher",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_D", "count": 2}}
+    },
+    {
+      "cell": "A2",
+      "name": "Eve",
+      "occupation": "Florist",
+      "status": "Criminal",
+      "clue": {"type": "NEIGHBOR_COUNT", "args": {"cell": "A2", "count": 1}}
+    },
+    {
+      "cell": "B2",
+      "name": "Finn",
+      "occupation": "Brewer",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Finn", "person2": "Eve"}}
+    },
+    {
+      "cell": "C2",
+      "name": "Gia",
+      "occupation": "Designer",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "col_C", "count": 1}}
+    },
+    {
+      "cell": "D2",
+      "name": "Hank",
+      "occupation": "Locksmith",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Hank", "person2": "Eve"}}
+    },
+    {
+      "cell": "A3",
+      "name": "Ivy",
+      "occupation": "Potter",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_A", "count": 1}}
+    },
+    {
+      "cell": "B3",
+      "name": "Jay",
+      "occupation": "Musician",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_3", "count": 2}}
+    },
+    {
+      "cell": "C3",
+      "name": "Kim",
+      "occupation": "Weaver",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Kim", "person2": "Jay"}}
+    },
+    {
+      "cell": "D3",
+      "name": "Leo",
+      "occupation": "Guard",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Leo", "person2": "Kim"}}
+    },
+    {
+      "cell": "A4",
+      "name": "May",
+      "occupation": "Herbalist",
+      "status": "Innocent",
+      "clue": {"type": "AT_LEAST", "args": {"region": "row_4", "count": 1}}
+    },
+    {
+      "cell": "B4",
+      "name": "Ned",
+      "occupation": "Blacksmith",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Ned", "person2": "May"}}
+    },
+    {
+      "cell": "C4",
+      "name": "Ora",
+      "occupation": "Alchemist",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 2}}
+    },
+    {
+      "cell": "D4",
+      "name": "Pat",
+      "occupation": "Tanner",
+      "status": "Criminal",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Pat", "person2": "Ned"}}
+    }
+  ]
+}

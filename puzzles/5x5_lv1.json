@@ -1,0 +1,183 @@
+{
+  "name": "Grand Academy",
+  "size": 5,
+  "columns": ["A", "B", "C", "D", "E"],
+  "initially_revealed": ["Arthur", "Flora", "Ingrid"],
+  "cards": [
+    {
+      "cell": "A1",
+      "name": "Arthur",
+      "occupation": "Professor",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_1", "count": 2}}
+    },
+    {
+      "cell": "B1",
+      "name": "Bianca",
+      "occupation": "Chemist",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Bianca", "person2": "Cedric"}}
+    },
+    {
+      "cell": "C1",
+      "name": "Cedric",
+      "occupation": "Historian",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_C", "count": 2}}
+    },
+    {
+      "cell": "D1",
+      "name": "Diana",
+      "occupation": "Physicist",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Diana", "person2": "Bianca"}}
+    },
+    {
+      "cell": "E1",
+      "name": "Ethan",
+      "occupation": "Linguist",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_E", "count": 1}}
+    },
+    {
+      "cell": "A2",
+      "name": "Flora",
+      "occupation": "Biologist",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_A", "count": 1}}
+    },
+    {
+      "cell": "B2",
+      "name": "Grant",
+      "occupation": "Mathematician",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Grant", "person2": "Hector"}}
+    },
+    {
+      "cell": "C2",
+      "name": "Hector",
+      "occupation": "Astronomer",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Hector", "person2": "Bianca"}}
+    },
+    {
+      "cell": "D2",
+      "name": "Ingrid",
+      "occupation": "Geologist",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "row_2", "count": 1}}
+    },
+    {
+      "cell": "E2",
+      "name": "Jules",
+      "occupation": "Librarian",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Jules", "person2": "Ingrid"}}
+    },
+    {
+      "cell": "A3",
+      "name": "Kurt",
+      "occupation": "Sculptor",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_3", "count": 3}}
+    },
+    {
+      "cell": "B3",
+      "name": "Luna",
+      "occupation": "Musician",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Luna", "person2": "Kurt"}}
+    },
+    {
+      "cell": "C3",
+      "name": "Marco",
+      "occupation": "Architect",
+      "status": "Criminal",
+      "clue": {"type": "DIAGONAL", "args": {"direction": "main", "count": 3}}
+    },
+    {
+      "cell": "D3",
+      "name": "Nora",
+      "occupation": "Painter",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Nora", "person2": "Marco"}}
+    },
+    {
+      "cell": "E3",
+      "name": "Oscar",
+      "occupation": "Poet",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "col_E", "count": 1}}
+    },
+    {
+      "cell": "A4",
+      "name": "Petra",
+      "occupation": "Nurse",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_4", "count": 1}}
+    },
+    {
+      "cell": "B4",
+      "name": "Quinn",
+      "occupation": "Surgeon",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Quinn", "person2": "Petra"}}
+    },
+    {
+      "cell": "C4",
+      "name": "Rex",
+      "occupation": "Dentist",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Rex", "person2": "Kurt"}}
+    },
+    {
+      "cell": "D4",
+      "name": "Sara",
+      "occupation": "Pharmacist",
+      "status": "Criminal",
+      "clue": {"type": "NEIGHBOR_COUNT", "args": {"cell": "D4", "count": 2}}
+    },
+    {
+      "cell": "E4",
+      "name": "Tom",
+      "occupation": "Therapist",
+      "status": "Innocent",
+      "clue": {"type": "DIFFERENT", "args": {"person1": "Tom", "person2": "Sara"}}
+    },
+    {
+      "cell": "A5",
+      "name": "Uma",
+      "occupation": "Dancer",
+      "status": "Criminal",
+      "clue": {"type": "EXACTLY", "args": {"region": "row_5", "count": 2}}
+    },
+    {
+      "cell": "B5",
+      "name": "Victor",
+      "occupation": "Singer",
+      "status": "Innocent",
+      "clue": {"type": "SAME", "args": {"person1": "Victor", "person2": "Tom"}}
+    },
+    {
+      "cell": "C5",
+      "name": "Wendy",
+      "occupation": "Writer",
+      "status": "Innocent",
+      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 2}}
+    },
+    {
+      "cell": "D5",
+      "name": "Xavier",
+      "occupation": "Director",
+      "status": "Criminal",
+      "clue": {"type": "SAME", "args": {"person1": "Xavier", "person2": "Uma"}}
+    },
+    {
+      "cell": "E5",
+      "name": "Yara",
+      "occupation": "Reporter",
+      "status": "Innocent",
+      "clue": {"type": "AT_MOST", "args": {"region": "row_5", "count": 2}}
+    }
+  ]
+}
