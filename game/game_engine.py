@@ -232,10 +232,7 @@ class GameEngine:
     # ──────────────────────── Highlight ─────────────────────────
 
     def get_highlighted_cells(self, clue_owner: str) -> List[str]:
-        """Get cell IDs that are referenced by a character's clue.
-
-        Used to visually highlight related cells when a clue is selected.
-        """
+        """Get cell IDs that are referenced by a character's clue."""
         if not self.board:
             return []
 
@@ -243,40 +240,50 @@ class GameEngine:
         if card is None or not card.is_revealed:
             return []
 
-        clue = card.clue
-        ctype = clue.get("type", "")
-        args = clue.get("args", {})
+        def _extract_cells(clue_dict: dict) -> List[str]:
+            ctype = clue_dict.get("type", "")
+            args = clue_dict.get("args", {})
+            cells = []
 
-        highlighted: List[str] = []
+            if ctype in ("AND", "OR"):
+                for sub_clue in args.get("clues", []):
+                    cells.extend(_extract_cells(sub_clue))
 
-        if ctype in ("SAME", "DIFFERENT"):
-            for key in ("person1", "person2"):
-                target = self.board.get_card_by_name(args.get(key, ""))
+            elif ctype in ("SAME", "DIFFERENT"):
+                for key in ("person1", "person2"):
+                    target = self.board.get_card_by_name(args.get(key, ""))
+                    if target:
+                        cells.append(target.cell_id)
+
+            elif ctype == "FACT":
+                target = self.board.get_card_by_name(args.get("person", ""))
                 if target:
-                    highlighted.append(target.cell_id)
+                    cells.append(target.cell_id)
 
-        elif ctype == "FACT":
-            target = self.board.get_card_by_name(args.get("person", ""))
-            if target:
-                highlighted.append(target.cell_id)
+            elif ctype in ("EXACTLY", "AT_LEAST", "AT_MOST"):
+                region_cards = self.board.resolve_region(args.get("region"))
+                cells.extend(c.cell_id for c in region_cards)
 
-        elif ctype in ("EXACTLY", "AT_LEAST", "AT_MOST"):
-            region_cards = self.board.resolve_region(args.get("region"))
-            highlighted = [c.cell_id for c in region_cards]
+            elif ctype == "NEIGHBOR_COUNT":
+                center_card = self.board.get_card_by_cell(args.get("cell", ""))
+                if center_card:
+                    cells.append(center_card.cell_id)
+                neighbors = self.board.get_neighbors(args.get("cell", ""))
+                cells.extend(c.cell_id for c in neighbors)
 
-        elif ctype == "NEIGHBOR_COUNT":
-            # Highlight the cell itself and its neighbors
-            center_card = self.board.get_card_by_cell(args.get("cell", ""))
-            if center_card:
-                highlighted.append(center_card.cell_id)
-            neighbors = self.board.get_neighbors(args.get("cell", ""))
-            highlighted.extend(c.cell_id for c in neighbors)
+            elif ctype == "DIAGONAL":
+                diag_cards = self.board.get_diagonal(args.get("direction", "main"))
+                cells.extend(c.cell_id for c in diag_cards)
 
-        elif ctype == "DIAGONAL":
-            diag_cards = self.board.get_diagonal(args.get("direction", "main"))
-            highlighted = [c.cell_id for c in diag_cards]
+            elif ctype == "PATTERN_MATCH":
+                r1 = self.board.resolve_region(args.get("region1"))
+                r2 = self.board.resolve_region(args.get("region2"))
+                cells.extend(c.cell_id for c in r1 + r2)
 
-        return highlighted
+            return cells
+
+        # Đảm bảo không bị trùng lặp ô khi highlight
+        return list(set(_extract_cells(card.clue)))
 
     # ──────────────────────── Timer ─────────────────────────────
 

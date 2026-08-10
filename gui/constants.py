@@ -82,8 +82,8 @@ CONTROL_PANEL_WIDTH = 320     # right sidebar width
 LOG_PANEL_HEIGHT = 250        # deduction log panel height
 
 # Card sizes (will be computed dynamically based on grid size)
-CARD_MIN_WIDTH = 130
-CARD_MIN_HEIGHT = 150
+CARD_MIN_WIDTH = 90
+CARD_MIN_HEIGHT = 100
 CARD_MAX_WIDTH = 200
 CARD_MAX_HEIGHT = 220
 CARD_BORDER_RADIUS = 10

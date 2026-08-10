@@ -1,120 +1,240 @@
 {
-  "name": "City Square",
+  "name": "Capital District",
   "size": 4,
-  "columns": ["A", "B", "C", "D"],
-  "initially_revealed": ["Amber", "Frank", "Lily"],
+  "columns": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "initially_revealed": [
+    "Arthur",
+    "Chloe"
+  ],
   "cards": [
     {
       "cell": "A1",
-      "name": "Amber",
-      "occupation": "Journalist",
+      "name": "Arthur",
+      "occupation": "Architect",
       "status": "Innocent",
-      "clue": {"type": "EXACTLY", "args": {"region": "row_1", "count": 2}}
+      "clue": {
+        "type": "SAME",
+        "text": "Arthur và Diana có cùng trạng thái.",
+        "args": {
+          "person1": "Arthur",
+          "person2": "Diana"
+        }
+      }
     },
     {
       "cell": "B1",
-      "name": "Blake",
-      "occupation": "Pilot",
-      "status": "Criminal",
-      "clue": {"type": "SAME", "args": {"person1": "Blake", "person2": "Derek"}}
+      "name": "Alex",
+      "occupation": "Baker",
+      "status": "Innocent",
+      "clue": {
+        "type": "SAME",
+        "text": "Alex và Chloe có cùng trạng thái.",
+        "args": {
+          "person1": "Alex",
+          "person2": "Chloe"
+        }
+      }
     },
     {
       "cell": "C1",
-      "name": "Clara",
-      "occupation": "Vet",
+      "name": "Chloe",
+      "occupation": "Dentist",
       "status": "Innocent",
-      "clue": {"type": "DIFFERENT", "args": {"person1": "Clara", "person2": "Blake"}}
+      "clue": {
+        "type": "EXACTLY",
+        "text": "Cột C có đúng 0 Tội phạm.",
+        "args": {
+          "region": "col_C",
+          "count": 0
+        }
+      }
     },
     {
       "cell": "D1",
-      "name": "Derek",
-      "occupation": "Engineer",
+      "name": "Daniel",
+      "occupation": "Doctor",
       "status": "Criminal",
-      "clue": {"type": "EXACTLY", "args": {"region": "col_D", "count": 2}}
+      "clue": {
+        "type": "EXACTLY",
+        "text": "Cột D có đúng 3 Tội phạm.",
+        "args": {
+          "region": "col_D",
+          "count": 3
+        }
+      }
     },
     {
       "cell": "A2",
-      "name": "Elena",
-      "occupation": "Singer",
+      "name": "Diana",
+      "occupation": "Designer",
       "status": "Innocent",
-      "clue": {"type": "EXACTLY", "args": {"region": "col_A", "count": 0}}
+      "clue": {
+        "type": "EXACTLY",
+        "text": "Hàng 2 có đúng 2 Tội phạm.",
+        "args": {
+          "region": "row_2",
+          "count": 2
+        }
+      }
     },
     {
       "cell": "B2",
-      "name": "Frank",
-      "occupation": "Chef",
-      "status": "Innocent",
-      "clue": {"type": "AT_MOST", "args": {"region": "row_2", "count": 1}}
+      "name": "Emma",
+      "occupation": "Engineer",
+      "status": "Criminal",
+      "clue": {
+        "type": "EXACTLY",
+        "text": "Cột B có đúng 1 Tội phạm.",
+        "args": {
+          "region": "col_B",
+          "count": 1
+        }
+      }
     },
     {
       "cell": "C2",
-      "name": "Gina",
-      "occupation": "Lawyer",
-      "status": "Criminal",
-      "clue": {"type": "SAME", "args": {"person1": "Gina", "person2": "Blake"}}
+      "name": "Felix",
+      "occupation": "Florist",
+      "status": "Innocent",
+      "clue": {
+        "type": "DIFFERENT",
+        "text": "Felix và Emma có trạng thái khác nhau.",
+        "args": {
+          "person1": "Felix",
+          "person2": "Emma"
+        }
+      }
     },
     {
       "cell": "D2",
-      "name": "Hugo",
-      "occupation": "Architect",
-      "status": "Innocent",
-      "clue": {"type": "DIFFERENT", "args": {"person1": "Hugo", "person2": "Gina"}}
+      "name": "Fiona",
+      "occupation": "Farmer",
+      "status": "Criminal",
+      "clue": {
+        "type": "SAME",
+        "text": "Fiona và Daniel có cùng trạng thái.",
+        "args": {
+          "person1": "Fiona",
+          "person2": "Daniel"
+        }
+      }
     },
     {
       "cell": "A3",
-      "name": "Iris",
-      "occupation": "Teacher",
-      "status": "Innocent",
-      "clue": {"type": "EXACTLY", "args": {"region": "row_3", "count": 1}}
+      "name": "Grace",
+      "occupation": "Guard",
+      "status": "Criminal",
+      "clue": {
+        "type": "SAME",
+        "text": "Grace và Emma có cùng trạng thái.",
+        "args": {
+          "person1": "Grace",
+          "person2": "Emma"
+        }
+      }
     },
     {
       "cell": "B3",
-      "name": "Jake",
-      "occupation": "Barber",
+      "name": "Henry",
+      "occupation": "Hairdresser",
       "status": "Innocent",
-      "clue": {"type": "SAME", "args": {"person1": "Jake", "person2": "Iris"}}
+      "clue": {
+        "type": "EXACTLY",
+        "text": "Hàng 3 có đúng 2 Tội phạm.",
+        "args": {
+          "region": "row_3",
+          "count": 2
+        }
+      }
     },
     {
       "cell": "C3",
-      "name": "Kara",
-      "occupation": "Dancer",
-      "status": "Criminal",
-      "clue": {"type": "DIFFERENT", "args": {"person1": "Kara", "person2": "Jake"}}
+      "name": "Ivy",
+      "occupation": "IT Consultant",
+      "status": "Innocent",
+      "clue": {
+        "type": "SAME",
+        "text": "Ivy và Noah có cùng trạng thái.",
+        "args": {
+          "person1": "Ivy",
+          "person2": "Noah"
+        }
+      }
     },
     {
       "cell": "D3",
-      "name": "Liam",
-      "occupation": "Driver",
-      "status": "Innocent",
-      "clue": {"type": "SAME", "args": {"person1": "Liam", "person2": "Hugo"}}
+      "name": "Jack",
+      "occupation": "Judge",
+      "status": "Criminal",
+      "clue": {
+        "type": "SAME",
+        "text": "Jack và Fiona có cùng trạng thái.",
+        "args": {
+          "person1": "Jack",
+          "person2": "Fiona"
+        }
+      }
     },
     {
       "cell": "A4",
-      "name": "Lily",
-      "occupation": "Pharmacist",
+      "name": "Kate",
+      "occupation": "King",
       "status": "Innocent",
-      "clue": {"type": "DIFFERENT", "args": {"person1": "Lily", "person2": "Nina"}}
+      "clue": {
+        "type": "EXACTLY",
+        "text": "Hàng 4 có đúng 0 Tội phạm.",
+        "args": {
+          "region": "row_4",
+          "count": 0
+        }
+      }
     },
     {
       "cell": "B4",
-      "name": "Max",
-      "occupation": "Painter",
+      "name": "Leo",
+      "occupation": "Librarian",
       "status": "Innocent",
-      "clue": {"type": "EXACTLY", "args": {"region": "col_B", "count": 1}}
+      "clue": {
+        "type": "SAME",
+        "text": "Leo và Kate có cùng trạng thái.",
+        "args": {
+          "person1": "Leo",
+          "person2": "Kate"
+        }
+      }
     },
     {
       "cell": "C4",
-      "name": "Nina",
-      "occupation": "Actor",
-      "status": "Criminal",
-      "clue": {"type": "EXACTLY", "args": {"region": "col_C", "count": 3}}
+      "name": "Maya",
+      "occupation": "Mechanic",
+      "status": "Innocent",
+      "clue": {
+        "type": "NEIGHBOR_COUNT",
+        "text": "Hàng xóm Kate có 1 tội phạm.",
+        "args": {
+          "cell": "A4",
+          "count": 1
+        }
+      }
     },
     {
       "cell": "D4",
-      "name": "Owen",
-      "occupation": "Plumber",
-      "status": "Criminal",
-      "clue": {"type": "AT_LEAST", "args": {"region": "row_4", "count": 2}}
+      "name": "Noah",
+      "occupation": "Nurse",
+      "status": "Innocent",
+      "clue": {
+        "type": "SAME",
+        "text": "Noah và Alex có cùng trạng thái.",
+        "args": {
+          "person1": "Noah",
+          "person2": "Alex"
+        }
+      }
     }
   ]
 }

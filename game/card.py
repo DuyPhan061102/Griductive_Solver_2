@@ -116,6 +116,13 @@ def _region_label(region) -> str:
 
 def clue_to_text(clue: dict) -> str:
     """Convert a structured clue dict to a natural-language string."""
+    if not clue:
+        return ""
+
+    # Ưu tiên lấy chuỗi text tiếng Việt có sẵn trong JSON
+    if "text" in clue and clue["text"]:
+        return clue["text"]
+
     ctype = clue.get("type", "")
     args = clue.get("args", {})
 
@@ -129,23 +136,23 @@ def clue_to_text(clue: dict) -> str:
         return f"{args['person1']} và {args['person2']} có trạng thái khác nhau."
 
     if ctype == "EXACTLY":
-        region = _region_label(args["region"])
-        return f"{region} có đúng {args['count']} Tội phạm."
+        region = _region_label(args.get("region", ""))
+        return f"{region} có đúng {args.get('count', 0)} Tội phạm."
 
     if ctype == "AT_LEAST":
-        region = _region_label(args["region"])
-        return f"{region} có ít nhất {args['count']} Tội phạm."
+        region = _region_label(args.get("region", ""))
+        return f"{region} có ít nhất {args.get('count', 0)} Tội phạm."
 
     if ctype == "AT_MOST":
-        region = _region_label(args["region"])
-        return f"{region} có nhiều nhất {args['count']} Tội phạm."
+        region = _region_label(args.get("region", ""))
+        return f"{region} có nhiều nhất {args.get('count', 0)} Tội phạm."
 
     # ── extension clues ──
     if ctype == "NEIGHBOR_COUNT":
-        return f"Ô {args['cell']} có đúng {args['count']} Tội phạm xung quanh."
+        return f"Ô {args.get('cell', '')} có đúng {args.get('count', 0)} Tội phạm xung quanh."
 
     if ctype == "DIAGONAL":
         direction = "chính" if args.get("direction") == "main" else "phụ"
-        return f"Đường chéo {direction} có đúng {args['count']} Tội phạm."
+        return f"Đường chéo {direction} có đúng {args.get('count', 0)} Tội phạm."
 
     return f"[{ctype}] {args}"

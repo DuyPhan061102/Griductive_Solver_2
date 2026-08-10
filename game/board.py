@@ -39,7 +39,9 @@ class Board:
         self.name = data.get("name", path.stem)
         self.size = data["size"]
         self.columns = data.get("columns", [chr(ord("A") + i) for i in range(self.size)])
-        self.initially_revealed = data.get("initially_revealed", [])
+        
+        # Hỗ trợ cả 2 kiểu đặt tên key trong JSON
+        self.initially_revealed = data.get("initially_revealed") or data.get("initial_revealed", [])
 
         self.cards = []
         self._cell_map = {}
@@ -119,20 +121,34 @@ class Board:
         return result
 
     def resolve_region(self, region) -> List[Card]:
-        """Convert a region specifier to a list of Card objects.
-        
-        Supports:
-          - "row_1", "row_2", ...
-          - "col_A", "col_B", ...
-          - "neighbors_B2"
-          - "diagonal_main", "diagonal_anti"
-          - ["Alice", "Brian", "Chloe"]  (explicit list of names)
-        """
+        """Convert a region specifier to a list of Card objects."""
         if isinstance(region, list):
             # Explicit list of character names
             return [self._name_map[name] for name in region if name in self._name_map]
 
         if isinstance(region, str):
+            # Xử lý vùng 4 góc
+            if region == "corners":
+                corners = [
+                    self.get_card_at(0, 0),
+                    self.get_card_at(0, self.size - 1),
+                    self.get_card_at(self.size - 1, 0),
+                    self.get_card_at(self.size - 1, self.size - 1),
+                ]
+                return [c for c in corners if c is not None]
+
+            # Xử lý cả 2 đường chéo
+            if region == "all_diagonals":
+                main_d = self.get_diagonal("main")
+                anti_d = self.get_diagonal("anti")
+                seen = set()
+                res = []
+                for c in main_d + anti_d:
+                    if c.cell_id not in seen:
+                        seen.add(c.cell_id)
+                        res.append(c)
+                return res
+
             if region.startswith("row_"):
                 return self.get_row(int(region[4:]))
             if region.startswith("col_"):
