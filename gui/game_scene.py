@@ -117,9 +117,9 @@ class GameScene:
             title="Phán quyết",
             message="Nhân vật này là Criminal hay Innocent?",
             buttons=[
-                {"text": "🔴 Criminal", "value": "Criminal",
+                {"text": "Criminal", "value": "Criminal",
                  "color": BTN_DANGER, "hover_color": BTN_DANGER_HOVER},
-                {"text": "🟢 Innocent", "value": "Innocent",
+                {"text": "Innocent", "value": "Innocent",
                  "color": BTN_SUCCESS, "hover_color": BTN_SUCCESS_HOVER},
             ],
             width=400, height=200,
@@ -133,19 +133,19 @@ class GameScene:
 
         self.btn_restart = Button(
             pygame.Rect(panel_x, y, btn_w, btn_h),
-            "🔄  Restart", BTN_NEUTRAL, BTN_NEUTRAL_HOVER,
+            "Restart", BTN_NEUTRAL, BTN_NEUTRAL_HOVER,
         )
         self.btn_hint = Button(
             pygame.Rect(panel_x, y + 50, btn_w, btn_h),
-            "💡  Hint", BTN_PRIMARY, BTN_PRIMARY_HOVER,
+            "Hint", BTN_PRIMARY, BTN_PRIMARY_HOVER,
         )
         self.btn_auto = Button(
             pygame.Rect(panel_x, y + 100, btn_w, btn_h),
-            "🤖  Auto Solve", BTN_SUCCESS, BTN_SUCCESS_HOVER,
+            "Auto Solve", BTN_SUCCESS, BTN_SUCCESS_HOVER,
         )
         self.btn_back = Button(
             pygame.Rect(panel_x, y + 150, btn_w, btn_h),
-            "⬅  Back", BTN_NEUTRAL, BTN_NEUTRAL_HOVER,
+            "Back", BTN_NEUTRAL, BTN_NEUTRAL_HOVER,
         )
 
         self.control_buttons = [
@@ -232,11 +232,11 @@ class GameScene:
                 self._flip_start = time.time()
 
             self.feedback.show(
-                f"✅ {character} là {verdict}!",
+                f"{character} là {verdict}!",
                 "ACCEPTED",
             )
             self.log_panel.add_line(
-                f"✅ {character} → {verdict}", COLOR_ACCEPTED,
+                f"{character} -> {verdict}", COLOR_ACCEPTED,
             )
 
             # Clear highlight
@@ -250,18 +250,18 @@ class GameScene:
 
         elif result == "NOT_PROVABLE":
             self.feedback.show(
-                f"⚠ Chưa thể chứng minh {character}.",
+                f"Chưa thể chứng minh {character}.",
                 "NOT_PROVABLE",
             )
             self.log_panel.add_line(
-                f"⚠ {character}: NOT PROVABLE", COLOR_NOT_PROVABLE,
+                f"{character}: NOT PROVABLE", COLOR_NOT_PROVABLE,
             )
 
         elif result == "CONTRADICTED":
             msg = self.engine.last_feedback.get("message", "Contradicted!")
-            self.feedback.show(f"❌ {msg}", "CONTRADICTED")
+            self.feedback.show(f"{msg}", "CONTRADICTED")
             self.log_panel.add_line(
-                f"❌ {character}: CONTRADICTED", COLOR_CONTRADICTED,
+                f"{character}: CONTRADICTED", COLOR_CONTRADICTED,
             )
 
     # ──────────────────────── Control Actions ──────────────────
@@ -273,7 +273,7 @@ class GameScene:
         self.hint_cell = None
         self._auto_running = False
         self.log_panel.clear()
-        self.log_panel.add_line("🔄 Game restarted.", TEXT_LIGHT)
+        self.log_panel.add_line("Game restarted.", TEXT_LIGHT)
         self.feedback.show("Game đã được khởi động lại.", "ACCEPTED")
 
     def _do_hint(self) -> None:
@@ -283,29 +283,29 @@ class GameScene:
             if card:
                 self.hint_cell = card.cell_id
             self.feedback.show(
-                f"💡 Gợi ý: {hint['character']} có thể là {hint['verdict']}.",
+                f"Gợi ý: {hint['character']} có thể là {hint['verdict']}.",
                 "ACCEPTED",
             )
             self.log_panel.add_line(
-                f"💡 Hint: {hint['character']} → {hint['verdict']}",
+                f"Hint: {hint['character']} -> {hint['verdict']}",
                 HIGHLIGHT_HINT[:3],
             )
         else:
-            self.feedback.show("🤔 Không tìm thấy gợi ý.", "NOT_PROVABLE")
+            self.feedback.show("Không tìm thấy gợi ý.", "NOT_PROVABLE")
 
     def _do_auto_toggle(self) -> None:
         self._auto_running = not self._auto_running
         if self._auto_running:
-            self.btn_auto.text = "⏸  Pause"
+            self.btn_auto.text = "Pause"
             self.btn_auto.color = BTN_DANGER
             self.btn_auto.hover_color = BTN_DANGER_HOVER
             self._auto_solve_timer = time.time()
-            self.log_panel.add_line("🤖 Auto Solve started.", MENU_ACCENT)
+            self.log_panel.add_line("Auto Solve started.", MENU_ACCENT)
         else:
-            self.btn_auto.text = "🤖  Auto Solve"
+            self.btn_auto.text = "Auto Solve"
             self.btn_auto.color = BTN_SUCCESS
             self.btn_auto.hover_color = BTN_SUCCESS_HOVER
-            self.log_panel.add_line("⏸ Auto Solve paused.", TEXT_DIM)
+            self.log_panel.add_line("Auto Solve paused.", TEXT_DIM)
 
     # ──────────────────────── Update ───────────────────────────
 
@@ -332,7 +332,7 @@ class GameScene:
                         self._flip_start = time.time()
 
                     self.log_panel.add_line(
-                        f"Step {step.step_number}: {result['character']} → "
+                        f"Step {step.step_number}: {result['character']} -> "
                         f"{result['verdict']} "
                         f"(SAT calls: {step.sat_queries})",
                         COLOR_ACCEPTED,
@@ -340,20 +340,20 @@ class GameScene:
 
                     if self.engine.is_finished:
                         self._auto_running = False
-                        self.btn_auto.text = "🤖  Auto Solve"
+                        self.btn_auto.text = "Auto Solve"
                         self.btn_auto.color = BTN_SUCCESS
                         self.btn_auto.hover_color = BTN_SUCCESS_HOVER
                         self.log_panel.add_line(
-                            "🎉 Puzzle solved!", COLOR_ACCEPTED,
+                            "Puzzle solved!", COLOR_ACCEPTED,
                         )
                         self.go_result = True
                 else:
                     self._auto_running = False
-                    self.btn_auto.text = "🤖  Auto Solve"
+                    self.btn_auto.text = "Auto Solve"
                     self.btn_auto.color = BTN_SUCCESS
                     self.btn_auto.hover_color = BTN_SUCCESS_HOVER
                     self.log_panel.add_line(
-                        "⚠ No more provable verdicts.", COLOR_NOT_PROVABLE,
+                        "No more provable verdicts.", COLOR_NOT_PROVABLE,
                     )
 
     # ──────────────────────── Drawing ──────────────────────────
@@ -492,13 +492,9 @@ class GameScene:
         if card.is_revealed:
             # Status badge
             status_text = card.proven_status
-            status_color = (
-                CARD_CRIMINAL if card.proven_status == "Criminal"
-                else CARD_INNOCENT
-            )
             badge_font = get_font(FONT_SIZE_CARD_STATUS, bold=True)
             badge_surf = badge_font.render(
-                f"{'🔴' if card.proven_status == 'Criminal' else '🟢'} {status_text}",
+                f"{status_text}",
                 True, TEXT_WHITE,
             )
             badge_rect = badge_surf.get_rect(centerx=cx, top=y)
@@ -513,7 +509,7 @@ class GameScene:
         else:
             # Face-down indicator
             y += 8
-            render_text(self.screen, "❓",
+            render_text(self.screen, "?",
                         cx, y, TEXT_DIM, FONT_SIZE_HEADING,
                         center=True)
 
@@ -525,37 +521,37 @@ class GameScene:
         pygame.draw.line(self.screen, (50, 50, 80),
                          (panel_x, 0), (panel_x, SCREEN_HEIGHT), 2)
 
-        # ── Puzzle name ──
+        # ── Puzzle name (Hạ tọa độ Y từ 15 -> 30 để tránh bị cắt viền) ──
         render_text(self.screen, self.engine.board.name,
-                    panel_x + CONTROL_PANEL_WIDTH // 2, 15,
+                    panel_x + CONTROL_PANEL_WIDTH // 2, 30,
                     TEXT_WHITE, FONT_SIZE_SUBTITLE, bold=True, center=True)
 
         size = self.engine.board.size
-        render_text(self.screen, f"{size}×{size} Grid",
-                    panel_x + CONTROL_PANEL_WIDTH // 2, 50,
+        render_text(self.screen, f"{size}x{size} Grid",
+                    panel_x + CONTROL_PANEL_WIDTH // 2, 60,
                     TEXT_DIM, FONT_SIZE_BODY, center=True)
 
         # ── Timer ──
         elapsed = self.engine.get_elapsed_time()
         minutes = int(elapsed) // 60
         seconds = int(elapsed) % 60
-        time_text = f"⏱ {minutes:02d}:{seconds:02d}"
+        time_text = f"Time: {minutes:02d}:{seconds:02d}"
         render_text(self.screen, time_text,
-                    panel_x + 20, 90,
+                    panel_x + 20, 95,
                     TEXT_LIGHT, FONT_SIZE_BODY)
 
         # ── Move counter ──
-        moves_text = f"📊 Bước: {self.engine.move_count}"
+        moves_text = f"Bước: {self.engine.move_count}"
         render_text(self.screen, moves_text,
-                    panel_x + 20, 120,
+                    panel_x + 20, 125,
                     TEXT_LIGHT, FONT_SIZE_BODY)
 
         # ── Progress ──
         total = self.engine.board.total_cards
         revealed = self.engine.board.revealed_count
-        progress_text = f"📋 {revealed}/{total} cards revealed"
+        progress_text = f"Progress: {revealed}/{total} cards"
         render_text(self.screen, progress_text,
-                    panel_x + 20, 150,
+                    panel_x + 20, 155,
                     TEXT_LIGHT, FONT_SIZE_BODY)
 
         # ── Control buttons ──

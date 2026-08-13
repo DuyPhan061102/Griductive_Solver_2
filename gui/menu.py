@@ -41,11 +41,11 @@ class MenuScene:
         y_mode = 280
         self.buttons["manual"] = Button(
             pygame.Rect(cx - 160, y_mode, 150, 44),
-            "🎮 Manual", BTN_PRIMARY, BTN_PRIMARY_HOVER,
+            "Manual", BTN_PRIMARY, BTN_PRIMARY_HOVER,
         )
         self.buttons["auto"] = Button(
             pygame.Rect(cx + 10, y_mode, 150, 44),
-            "🤖 Auto", BTN_NEUTRAL, BTN_NEUTRAL_HOVER,
+            "Auto", BTN_NEUTRAL, BTN_NEUTRAL_HOVER,
         )
 
         # Size buttons
@@ -74,7 +74,7 @@ class MenuScene:
         # Start button
         self.buttons["start"] = Button(
             pygame.Rect(cx - 100, 580, 200, 52),
-            "▶  START GAME",
+            "START GAME",
             BTN_SUCCESS, BTN_SUCCESS_HOVER,
             font_size=FONT_SIZE_SUBTITLE,
             border_radius=12,
@@ -172,7 +172,7 @@ class MenuScene:
         self.screen.blit(title_surf, title_rect)
 
         # Subtitle
-        render_text(self.screen, "🕵️ A Logic Deduction Game",
+        render_text(self.screen, "A Logic Deduction Game",
                     SCREEN_WIDTH // 2, 150,
                     color=TEXT_DIM, size=FONT_SIZE_SUBTITLE, center=True)
 
@@ -207,7 +207,7 @@ class MenuScene:
         name = puzzle_names.get(
             (self.selected_size, self.selected_level), "Unknown"
         )
-        render_text(self.screen, f"📋 {name}",
+        render_text(self.screen, f"Puzzle: {name}",
                     cx, 645, color=TEXT_DIM, size=FONT_SIZE_BODY, center=True)
 
         # ── Footer ──
