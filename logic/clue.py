@@ -1,23 +1,6 @@
-"""
-Clue definitions – structured clue types for the Griductive game.
-
-Supported core clue types:
-  FACT, SAME, DIFFERENT, EXACTLY, AT_LEAST, AT_MOST
-
-Extension clue types:
-  NEIGHBOR_COUNT, DIAGONAL
-
-This module provides:
-  - Clue type constants
-  - Clue validation
-  - Direct semantic evaluators (check clue truth without CNF)
-"""
-
 from __future__ import annotations
 
 from typing import Dict, List, Optional
-
-# ──────────────────────── Clue type constants ───────────────────────────
 
 FACT = "FACT"
 SAME = "SAME"
@@ -31,8 +14,6 @@ DIAGONAL = "DIAGONAL"
 ALL_CLUE_TYPES = [FACT, SAME, DIFFERENT, EXACTLY, AT_LEAST, AT_MOST,
                   NEIGHBOR_COUNT, DIAGONAL]
 
-
-# ──────────────────────── Validation ────────────────────────────────────
 
 def validate_clue(clue: dict, all_names: List[str], board_size: int) -> bool:
     """Validate that a clue dict has correct structure and references."""
@@ -56,7 +37,6 @@ def validate_clue(clue: dict, all_names: List[str], board_size: int) -> bool:
         count = args.get("count")
         if not isinstance(count, int) or count < 0:
             return False
-        # Region validation is handled by Board.resolve_region
         return region is not None
 
     if ctype == NEIGHBOR_COUNT:
@@ -72,22 +52,8 @@ def validate_clue(clue: dict, all_names: List[str], board_size: int) -> bool:
     return False
 
 
-# ──────────────────────── Semantic Evaluators ───────────────────────────
-
 def evaluate_clue(clue: dict, assignment: Dict[str, bool],
                   board=None) -> bool:
-    """Evaluate a clue against a complete assignment.
-    
-    Args:
-        clue: structured clue dict
-        assignment: mapping from character name -> True (Criminal) / False (Innocent)
-        board: Board object (needed for region-based clues)
-    
-    Returns:
-        True if the clue is satisfied by the assignment.
-    
-    This is a DIRECT semantic evaluator – it does not use CNF.
-    """
     ctype = clue.get("type")
     args = clue.get("args", {})
 
