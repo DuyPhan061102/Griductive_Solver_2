@@ -63,5 +63,7 @@ Griductive_Solver_2/
 
 ## 👥 Team
 
-- **Người 1**: Game Engine, GUI, Puzzle Data
-- **Người 2**: Logic, CNF Encoding, DPLL Solver, Logic Agent
+- **Người 1**: Main Code, Game Engine, Game Structure, Algorithm Integration
+- **Người 2**: Supporting Code, CNF Encoding, DPLL Solver, Logic Agent
+- **Người 3**: Logic, Logical Representation, Constraint Design, Supporting Code
+- **Người 4**: Logic, Algorithm Analysis, Testing, Report & Presentation
